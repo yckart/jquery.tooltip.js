@@ -1,0 +1,32 @@
+{
+    "name": "tooltip",
+    "title": "jQuery Tooltip",
+    "description": "The tooltip to use, ready for mobile!",
+    "keywords": [
+        "tip",
+        "tool",
+        "tipsy",
+        "tipper"
+        "tooltip",
+        "tooltips",
+        "frontend"
+    ],
+    "version": "0.0.1",
+    "author": {
+        "name": "Yannick Albert",
+        "url": "https://github.com/yckart"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://yckart.com/mit/"
+        }
+    ],
+    "homepage": "http://yckart.github.com/jquery.tooltip.js",
+    "demo": "http://yckart.github.com/jquery.tooltip.js",
+    "docs": "https://github.com/yckart/jquery.tooltip.js/wiki",
+    "bugs": "https://github.com/yckart/jquery.tooltip.js/issues",
+    "dependencies": {
+        "jquery": ">=1.8"
+    }
+}

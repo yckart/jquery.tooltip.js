@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width'>
+
+        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Numans'>
+        <style>
+            body{
+                width: 60%;
+                margin: 40px auto;
+                font-family: sans-serif;
+                background: whiteSmoke
+            }
+            h1 {margin-bottom: 40px; font-size: 32px; text-align: center}
+            ul {padding:0; list-style:none}
+
+            .item { margin-bottom: 40px }
+            .item a {
+                display: inline-block;
+                margin: 1px 0;
+                padding: 3px 6px;
+                color: white;
+                text-align: center;
+                text-decoration: none;
+                background-color: #222;
+                border-radius: 3px
+            }
+            .item a:hover{background-color:#0ae}
+            .item li a {width: 60px}
+            .item pre {margin-top: 6px}
+            .item code {padding: 3px 6px; background: #fafafa; border: 1px solid #eee}
+
+            input, select { display:block }
+
+            /* Tooltip -Styles */
+            .tooltip {
+                padding: 5px;
+                font-size: 11px;
+                opacity: 0.85;
+                filter: alpha(opacity=85);
+                background-repeat: no-repeat;
+                background-image: url(tooltip.gif);
+            }
+            .tooltip-inner {
+                padding: 5px 10px;
+                max-width: 200px;
+                pointer-events: none;
+                color: white;
+                text-align: center;
+                background-color: black;
+                border-radius: 3px;
+                box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+            }
+
+            .tooltip-bottom { background-position: top center; }
+            .tooltip-top { background-position: bottom center; }
+            .tooltip-left { background-position: right center; }
+            .tooltip-right { background-position: left center; }
+        </style>
+
+        <title>jquery.tooltip.js | The tooltip to use, ready for mobile!</title>
+    </head>
+
+    <body>
+        <h1>jQuery.tooltip.js</h1>
+
+        <div class="item">
+            <h2>Directions</h2>
+            <ul>
+                <li><a href="#" class="top" title="Top">Top</a> <code>$('a').tooltip({align: 'top'});</code></li>
+                <li><a href="#" class="left" title="Left">Left</a> <code>$('a').tooltip({align: 'left'});</code></li>
+                <li><a href="#" class="right" title="Right">Right</a> <code>$('a').tooltip({align: 'right'});</code></li>
+                <li><a href="#" class="bottom" title="Bottom">Bottom</a> <code>$('a').tooltip({align: 'bottom'});</code></li>
+            </ul>
+
+            <h3>Auto Position</h3>
+            <ul>
+                <li><a href="#" class="autotop" title="AutoTop">AutoTop</a> <code>$('a').tooltip({align: 'autoTop'});</code></li>
+                <li><a href="#" class="autoleft" title="AutoLeft">AutoLeft</a> <code>$('a').tooltip({align: 'autoLeft'});</code></li>
+            </ul>
+
+            <p>If direction is not set, <code>autoTop</code> is used.</p>
+        </div>
+
+        <div class="item">
+            <h2>Effects</h2>
+            <a href="#" class="fade" title="Fade">Fade</a>
+            <pre><code>$('a').tooltip({fade: true});</code></pre>
+        </div>
+
+        <div class="item">
+            <a href="#" class="attr" id="attribute">Attribute</a>
+            <pre><code>$('a').tooltip({attr: 'id'});</code></pre>
+        </div>
+
+        <div class="item">
+            <a href="#" class="fallback">Fallback</a>
+            <pre><code>$('a').tooltip({falback: 'It was set to nothing!'});</code></pre>
+        </div>
+
+        <div class="item">
+            <a href="#" class="html" title="Im <b>awesome</b> <u>and</u> <i>preformatted</i>">Html</a>
+            <pre><code>$('a').tooltip({html: true});</code></pre>
+        </div>
+
+        <div class="item">
+            <a href="#" class="delay" title="Delay">Delay</a>
+            <pre><code>$('a').tooltip({delay: {show: 300, hide:300}});</code></pre>
+        </div>
+
+
+
+        <div class="item">
+            <h2>Trigger</h2>
+            <a href="#" class="trigger show" title="I was manually trigger to be visible!">show</a>
+            <pre><code>$('a').trigger('tooltip:show');</code></pre>
+        </div>
+
+        <div class="item">
+            <a href="#" class="trigger hide" title="I was manually trigger to be visible!">hide</a>
+            <pre><code>$('a').trigger('tooltip:hide');</code></pre>
+        </div>
+
+
+
+        <div class="item">
+            <h2>Forms</h2>
+            <input id="name" title="Enter name"/>
+            <select name='title' title='Select title'>
+                <option>Foo</option>
+                <option>Bar</option>
+            </select>
+            <textarea title="Message"></textarea>
+        </div>
+
+        <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
+        <script src='jquery.tooltip.js'></script>
+        <script>
+            /* directions */
+            $('.top').tooltip({align: 'top'});
+            $('.right').tooltip({align: 'right'});
+            $('.bottom').tooltip({align: 'bottom'});
+            $('.left').tooltip({align: 'left'});
+            $('.autotop').tooltip({align: 'autoTop'});
+            $('.autoleft').tooltip({align: 'autoLeft'});
+
+            /* effects */
+            $('.fade').tooltip({
+                // fade:true
+                // or with custom options:
+                fade: {
+                    duration: 200,
+                    opacity: 0.8,
+                    complete: function(hidden){
+                        alert(hidden ? 'hidden' : 'visible');
+                    }
+                }
+            });
+
+            /* attribute */
+            $('.attr').tooltip({attr: 'id'});
+
+            /* fallback */
+            $('.fallback').tooltip({fallback: 'It was set to nothing!'});
+
+            /* html */
+            $('.html').tooltip({html: true});
+
+            /* delay */
+            // you can use `false` to disable it completely (default) or
+            // `show` and `hide` separately for each.
+            $('.delay').tooltip({delay: {show: 150, hide:300}});
+
+            /* trigger */
+            var myTooltip = $('.trigger.show').tooltip({trigger: {}});
+            $('.trigger').click(function(){
+                myTooltip.trigger('tooltip:'+ this.innerText);
+                return false;
+            });
+
+            /* inputs */
+            $('input, select, textarea').tooltip({
+                align: 'autoLeft',
+                trigger: {
+                    show: 'focus',
+                    hide: 'blur'
+                }
+            });
+        </script>
+    </body>
+</html>
