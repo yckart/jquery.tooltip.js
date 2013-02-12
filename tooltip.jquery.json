@@ -6,14 +6,15 @@
         "tip",
         "tool",
         "tipsy",
-        "tipper"
+        "tipper",
         "tooltip",
         "tooltips",
         "frontend"
     ],
-    "version": "0.0.1",
+    "version": "0.0.2",
     "author": {
         "name": "Yannick Albert",
+        "email": "mail@yckart.com",
         "url": "https://github.com/yckart"
     },
     "licenses": [
